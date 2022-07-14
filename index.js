@@ -30,7 +30,7 @@ app.get('/getVideoByString', async (req, res, next) => {
 			temparr.push({thumbnail: `https://i.ytimg.com/vi/${r[i]["id"]}/mqdefault.jpg`, video_id: r[i]["id"]});
 		}
 
-		res.json(temparr.length);
+		res.json(temparr);
 	} catch (err) {
 		console.error(err);
 	}
