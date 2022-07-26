@@ -1,3 +1,4 @@
+
 const ytdl = require('ytdl-core');
 const ytsr = require('ytsr');
 const ytt = require('node-ytt');
@@ -42,6 +43,7 @@ app.get('/getTrending', async (req, res, next) => {
 
 		ytt(async (r) => {
 			for(let i = 0; i < r.length; i++){
+				if (r[i].live || r[i].ad) continue;
 				temparr.push({thumbnail: `https://i.ytimg.com/vi/${r[i]["video_id"]}/mqdefault.jpg`, video_id: r[i]["video_id"]})
 			}
 			res.send(temparr);
